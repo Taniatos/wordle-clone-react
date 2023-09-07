@@ -56,4 +56,10 @@ h1 {
   margin: 0 2px;
   cursor: pointer;
   text-transform: uppercase;
+  border: 1px solid #ccc; 
+  color: #333; 
+  background-color: #ededed;
+  transition: background-color 0.3s ease; /* Smooth transition for color change */
 }
+
+

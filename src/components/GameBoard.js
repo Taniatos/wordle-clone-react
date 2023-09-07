@@ -10,7 +10,7 @@ function GameBoard({ guesses, rightGuessString, currentRow }) {
           guess={guess}
           answer={rightGuessString}
           isSubmitted={index < currentRow}
-        />
+        /> 
       ))}
     </div>
   );

@@ -13,6 +13,7 @@ function Wordle() {
   const [rightGuessString, setRightGuessString] = useState("");
   const [currentRow, setCurrentRow] = useState(0);
   const [hasGuessedCorrectly, setHasGuessedCorrectly] = useState(false);
+  const [confirmedGuesses, setConfirmedGuesses] = useState([]);
 
   useEffect(() => {
     const randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
@@ -27,6 +28,7 @@ function Wordle() {
     if (pressedKey === "Enter") {
       if (validateWord()) {
         checkGuess();
+        setConfirmedGuesses((prev) => [...prev, guesses[currentRow].join("")]);
         setCurrentRow((prevRow) => prevRow + 1);
       } else {
         toastr.warning("Please enter an existing 5-letter word.");
@@ -98,9 +100,8 @@ function Wordle() {
       />
       <Keyboard
         handleKeyPress={handleKeyPress}
-        guesses={guesses}
+        confirmedGuesses={confirmedGuesses}
         rightGuessString={rightGuessString}
-        NUMBER_OF_GUESSES={NUMBER_OF_GUESSES}
       />
       <p>Guesses Remaining: {NUMBER_OF_GUESSES - currentRow}</p>
     </div>

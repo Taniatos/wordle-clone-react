@@ -1,30 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function Keyboard({
-  handleKeyPress,
-  guesses,
-  rightGuessString,
-  NUMBER_OF_GUESSES,
-  isSubmitted,
-}) {
-  const [submittedKeys, setSubmittedKeys] = useState([]);
-
-  useEffect(() => {
-    let allKeys = [];
-    guesses.forEach((guess) => {
-      allKeys = [...allKeys, ...guess];
-    });
-    setSubmittedKeys(allKeys);
-  }, [guesses]);
-
+function Keyboard({ handleKeyPress, confirmedGuesses, rightGuessString }) {
   const determineColor = (key) => {
-    let color = "white"; // default color
+    let color = "white";
 
-    for (let i = 0; i < guesses.length; i++) {
-      const guess = guesses[i];
+    for (let guess of confirmedGuesses) {
       if (guess.includes(key)) {
         const keyIndex = guess.indexOf(key);
-        if (guess[keyIndex] === rightGuessString[keyIndex]) {
+        if (rightGuessString[keyIndex] === key) {
           color = "#68D580"; // green
         } else if (rightGuessString.includes(key)) {
           color = "#F4FFB1"; // yellow
@@ -54,8 +37,8 @@ function Keyboard({
               key={key}
               className="keyboard-button"
               style={{
-                backgroundColor: isSubmitted ? determineColor(key) : "white",
-              }} // Use isSubmitted to determine if color should be applied
+                backgroundColor: determineColor(key),
+              }}
               onClick={() => handleKeyPress(key)}
             >
               {key}

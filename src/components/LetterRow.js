@@ -8,7 +8,7 @@ function LetterRow({ guess, answer, isSubmitted }) {
 
     if (char === answer[index]) return "#68D580"; //green
     if (answer.includes(char)) return "#F4FFB1"; //yellow
-    return "#CEC8C8";//grey
+    return "#CEC8C8";//gray
   };
 
 

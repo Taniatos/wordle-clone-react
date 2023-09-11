@@ -91,7 +91,10 @@ function Wordle() {
 
   return (
     <div className="wordle-container">
-      <h1>Wordle</h1>
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/096/710/original/wordle-w.png?1694462850"
+        alt="wordle"
+      />
       <GameBoard
         guesses={guesses}
         rightGuessString={rightGuessString}

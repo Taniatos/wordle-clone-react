@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import GameBoard from "./GameBoard";
-import Keyboard from "./Keyboard";
+import GameBoard from "../GameBoard/GameBoard";
+import Keyboard from "../Keyboard/Keyboard";
 import toastr from "toastr";
-import { WORDS } from "./Words.js";
-import "./style.css";
+import { WORDS } from "../Words/Words.js";
+import "../Styles/style.css";
 
 function Wordle() {
   const NUMBER_OF_GUESSES = 6;

@@ -1,5 +1,5 @@
 import React from "react";
-import LetterRow from "./LetterRow";
+import LetterRow from "../LetterRow/LetterRow";
 
 function GameBoard({ guesses, rightGuessString, currentRow }) {
   return (
@@ -10,7 +10,7 @@ function GameBoard({ guesses, rightGuessString, currentRow }) {
           guess={guess}
           answer={rightGuessString}
           isSubmitted={index < currentRow}
-        /> 
+        />
       ))}
     </div>
   );
